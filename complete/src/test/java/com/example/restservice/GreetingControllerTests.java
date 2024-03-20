@@ -33,7 +33,11 @@ public class GreetingControllerTests {
 
 	@Autowired
 	private MockMvc mockMvc;
-
+	
+	/*
+ 	Verifica se o endpoint ("/greeting") retorna a mensagem “Hello, World!” quando nenhum parâmetro
+        é passado na requisição.
+	*/
 	@Test
 	public void noParamGreetingShouldReturnDefaultMessage() throws Exception {
 
@@ -41,6 +45,10 @@ public class GreetingControllerTests {
 				.andExpect(jsonPath("$.content").value("Hello, World!"));
 	}
 
+	/*
+ 	Verifica se o endpoint ("/greeting") retorna a mensagem “Hello, Spring Community!” quando o parâmetro "name"
+        é passado na requisição e preenchido com "Spring Community".
+	*/
 	@Test
 	public void paramGreetingShouldReturnTailoredMessage() throws Exception {
 
